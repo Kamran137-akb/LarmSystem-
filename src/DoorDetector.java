@@ -8,11 +8,15 @@ class DoorDetector extends Sensor{
 
     @Override
     public String detect() {
-        Random random = new Random();
-        if (random.nextBoolean()) {
-            return "Dörröppning detekterad i " + name;
+        if (active) {
+            Random random = new Random();
+            if (random.nextBoolean()) {
+                hasTriggered = true;
+                return "Dörröppning detekterad i " + name;
+            }
+            return "Ingen dörröppning detekterad i " + name;
         }
-        return "Ingen dörröppning detekterad i " + name;
+        return name + "är inaktiv.";
 
     }
 }

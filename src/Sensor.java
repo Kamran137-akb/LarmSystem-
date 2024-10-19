@@ -1,10 +1,12 @@
 abstract class Sensor {
     protected String name;
     protected boolean active;
+    protected boolean hasTriggered;
 
     public Sensor (String name) {
         this.name = name;
         this.active = false;
+        this.hasTriggered = true;
 
     }
 
@@ -18,7 +20,16 @@ abstract class Sensor {
 
     }
 
+    public boolean hasTriggered() {
+        return hasTriggered;
+    }
+
     public abstract String detect ();
+
+    public void reset() {
+        hasTriggered = false;
+
+    }
 
     }
 

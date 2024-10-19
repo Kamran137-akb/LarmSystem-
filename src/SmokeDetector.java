@@ -1,6 +1,7 @@
 import java.util.Random;
 
-class SmokeDetector extends Sensor {
+public class SmokeDetector extends Sensor {
+
     public SmokeDetector(String name) {
         super(name);
         this.active = true;
@@ -9,19 +10,12 @@ class SmokeDetector extends Sensor {
 
     @Override
     public String detect() {
-        if (active) {
-            Random random = new Random();
-            if (random.nextBoolean()) {
-                return "Rökdetektion aktiverad i " + name;
-            }
-            return "Ingen rök detekterad i " + name;
+        Random random = new Random();
+        if (random.nextBoolean()){
+            hasTriggered = true;
+            return "Rökdetektion aktiverad i " + name;
         }
-        return "Rökdetektorn är inaktiv. ";
-    }
-
-    @Override
-    public void deactivate() {
-
+        return "ingen rök detekterad i " + name;
     }
 }
 

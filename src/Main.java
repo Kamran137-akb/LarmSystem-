@@ -98,15 +98,9 @@ public class Main {
                     break;
                 case "3":
                     centralUnit.triggerAlarm("brand");
-                    for (Room room : rooms) {
-                        room.checkSensors();
-                    }
                     break;
                 case "4":
                     centralUnit.triggerAlarm("inbrott");
-                    for (Room room : rooms) {
-                        room.checkSensors();
-                    }
                     break;
                 case "5":
                     System.out.println("Simulera rörelse i poolområdet.");

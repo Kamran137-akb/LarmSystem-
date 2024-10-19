@@ -7,11 +7,15 @@ class MotionDetector extends Sensor {
 
     @Override
     public String detect() {
-        Random random = new Random();
-        if (random.nextBoolean()) {
-        return "Rörelsedetektion aktiverad i " + name;
-    }
-     return"Ingen rörelse detekterad i " +name;
+        if (active) {
+            Random random = new Random();
+            if (random.nextBoolean()) {
+                hasTriggered = true;
+                return "Rörelsedetektion aktiverad i " + name;
+            }
+            return "Ingen rörelse detekterad i " + name;
+        }
+        return name + "är inaktiv.";
 }
 }
 
